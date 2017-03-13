@@ -6,29 +6,36 @@ and open the template in the editor.
 -->
 <html>
     <head>
-         <title>The social network:trova la tua cavalla</title>
+         <title>The social network:NerdBook</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <meta name="author" content="Emanuel Fois">
         <meta name="keywords" content="trova il tuo Equino">
     </head>
     <body>
-        <div class="contenitore">
-      <div class="header">EMAgames</div>
-      <div class="menu">
-       <ul>
-            <li><a href="index.html">Home</a></li>      <!-- menù di navigazione, al posto di # andrà il collegamento, i titoli sono a piacere -->
-            <li><a href="shop.html">Shop</a></li>
+        <header> 
+            <div id="title">
+                 <h1>NerdBook</h1>
+            </div>
+        </header>
+        <div id="menu">
+                      <h2>Menu di navigazione</h2>
+                      <ul>
+            <li><a href="descrizione.html">Descrizione</a></li>      
+            <li><a href="bacheca.html">Bacheca</a></li>
+            <li><a href="profilo.html">Profilo</a></li>
        </ul></div>
-        <div class="form">
-            nome:<br/>
-            <input type="text" Nome="nome"/><br/>
-            cognome:<br/>
-            <input type="text" Nome="cognome"/><br/>
-            password:<br/>
-            <input type="password" Nome="pwd"/><br/>
+        
+        <div id="form">
+            username:
+            <input type="text" name="username" id="username"/><br/>
+           
+            password:
+            <input type="password" name="password"/><br/>
+            
             <input type="submit" value="Login"/>
-        </form></div>
+        </div>
+        
     </body>
 </html>
 
