@@ -6,11 +6,55 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>The social network:NerdBook</title>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta name="author" content="Emanuel Fois">
+         <meta name="keywords" content="trova il tuo Equino">
     </head>
+    
     <body>
-        <div>TODO write content</div>
+       <header> 
+            <div id="title">
+                 <h1>NerdBook</h1>
+            </div>
+        </header>
+        <nav>
+      <div id="menu">
+          <h2>Menu di navigazione</h2>
+       <ul>
+            <li><a href="descrizione.html">Descrizione</a></li>      
+            <li><a href="bacheca.html">Bacheca</a></li>
+            </ul></div>
+        </nav>
+        
+
+        
+        <form method="post" action="esegui.php">
+
+
+      Nome
+      <input name=nome type="text" placeholder="nome" required><br><br/>
+      
+      Cognome
+      <input  name=cognome type="text" placeholder="esempioe@dominio.com" required><br><br/>
+      
+      immagine
+      <input type="file" name="immagine" ><br><br/>
+        
+     Frase
+     <input name=frase type="text" placeholder="forza e coraggio" required><br><br/>
+      
+      DataDiNascita
+      <input name=DataDiNascita type="text" placeholder="11/11/2999" required><br><br/>
+      
+      Password
+      <input  name=password type="password" placeholder="Rygdjiu4" required><br><br/>
+      
+      ConfermaPassword
+      <input  name=confermapassword type="password" placeholder="Rygdjiu4" required><br><br/>
+      <button type="submit">Invia</button>
+</form>
     </body>
 </html>
+ 

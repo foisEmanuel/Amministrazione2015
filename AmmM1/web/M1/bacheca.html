@@ -5,12 +5,52 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>TODO supply a title</title>
+     <head>
+     <title>The social network:NerdBook</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta name="author" content="Emanuel Fois">
+        <meta name="keywords" content="trova il tuo nerd,giochi,studio">
     </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+ 
+    
+        <body>
+        <header> 
+            <div id="title">
+                 <h1>NerdBook</h1>
+            </div>
+        </header>
+        
+         <!--Barra di navigazione tra le pagine del sito-->
+         <nav>
+            <div id="menu">
+                      <h2>Menu di navigazione</h2>
+                      <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="descrizione.html">Descrizione</a></li> 
+            </ul>
+         </nav>
+ 
+         <!--Contenuti della pagina-->
+         <div id="corpo">
+             <div id="nuovoPost">
+                 <form action="servlet.java" method="post">
+                     <div>
+                         <h2>Tipi di post</h2>
+                         <label for="textType">Post di Testo</label>
+                         <input type="radio" name="postType" value="textType" id="textType"><br>
+                         <label for="imgType">Post con Foto</label>
+                         <input type="radio" name="postType" value="imgType" id="imgType">
+                         
+                     </div>
+                     <div>
+                         <h2>Post</h2>
+                         <textarea name="textPost" id="textPost"></textarea><br>
+                         <input type="file" name="imgPost" id="imgPost">
+                     </div>
+                     <button type="submit">Invia</button>
+                 </form>
+             </div>
+         </div>
+     </body>
+ </html>
