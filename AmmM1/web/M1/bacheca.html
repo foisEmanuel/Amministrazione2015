@@ -34,23 +34,22 @@ and open the template in the editor.
          <!--Contenuti della pagina-->
          <div id="corpo">
              <div id="nuovoPost">
-                 <form action="servlet.java" method="post">
-                     <div>
-                         <h2>Tipi di post</h2>
-                         <label for="textType">Post di Testo</label>
-                         <input type="radio" name="postType" value="textType" id="textType"><br>
-                         <label for="imgType">Post con Foto</label>
-                         <input type="radio" name="postType" value="imgType" id="imgType">
-                         
+                 <h3>Post Normale</h3>
+                 <p>La giornata è stupenda.Lucca Balduini</p>
+             </div>
+             <div>
+                 <h3>Post con Immagine</h3>
+               <img src="immagini/gatto.jpg" width="125" height="125">Dark Father Gandalf
+               
+               <p>Tu non puoi passare.Io sono tuo padre</p>
                      </div>
-                     <div>
-                         <h2>Post</h2>
-                         <textarea name="textPost" id="textPost"></textarea><br>
-                         <input type="file" name="imgPost" id="imgPost">
-                     </div>
-                     <button type="submit">Invia</button>
-                 </form>
+             <div>
+                 <h3>Post con URL</h3>
+                 Giovanni Sardo
+                 <p>Io non capisco come questo possa essere considerato un film</p>
+                 <a href="https://it.wikipedia.org/wiki/Troppo_belli">Cessss</a>
              </div>
          </div>
+                       
      </body>
  </html>
