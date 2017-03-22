@@ -10,51 +10,61 @@ and open the template in the editor.
          <meta charset="UTF-8">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <meta name="author" content="Emanuel Fois">
-         <meta name="keywords" content="trova il tuo Equino">
+         <meta name="keywords" content="trova il tuo nerd,giochi,studio">
     </head>
     
     <body>
-       <header> 
-            <div id="title">
-                 <h1>NerdBook</h1>
-            </div>
-        </header>
-        <nav>
-      <div id="menu">
-          <h2>Menu di navigazione</h2>
-       <ul>
-            <li><a href="descrizione.html">Descrizione</a></li>      
-            <li><a href="bacheca.html">Bacheca</a></li>
-            </ul></div>
-        </nav>
+       
         
-
+            <header id="header">
+                <h1>NerdBook</h1>
+            </header>
         
+        
+        
+            <nav id="menu">
+                <h2>Menu di navigazione</h2>
+                <ul>
+                <li><a href="descrizione.html">Descrizione</a></li>      
+                <li><a href="bacheca.html">Bacheca</a></li>
+                </ul>
+            </nav>
+        
+        
+        <div id="input-form">
+            <h3>Profilo</h3>
         <form method="post" action="esegui.php">
-
-
-      Nome
-      <input name=nome type="text" placeholder="nome" required><br><br/>
+            
+            <label for="nome">Nome</label>
+            <input name=nome id="nome" type="text" placeholder="nome" required><br><br/>
       
-      Cognome
-      <input  name=cognome type="text" placeholder="esempioe@dominio.com" required><br><br/>
+            <label for="cognome">Cognome</label>
+            <input  name=cognome id="cognome" type="text" placeholder="esempioe@dominio.com" required><br><br/>
       
-      immagine
-      <input type="file" name="immagine" ><br><br/>
+            <label for="immagine">Immagine</label>
+            <input type="file" id="immagine" name="immagine" ><br><br/>
         
-     Frase
-     <input name=frase type="text" placeholder="forza e coraggio" required><br><br/>
+            <label for="frase">Frase</label>
+            <input name=frase id="frase" type="text" placeholder="forza e coraggio" required><br><br/>
       
-      DataDiNascita
-      <input name=DataDiNascita type="text" placeholder="11/11/2999" required><br><br/>
+            <label for="data">DataDiNascita</label>
+            <input name=data id="data" type="text" placeholder="11/11/2999" required><br><br/>
       
-      Password
-      <input  name=password type="password" placeholder="Rygdjiu4" required><br><br/>
+            <label for="password">Password</label>
+            <input  name=password id="password" type="password" placeholder="Rygdjiu4" required><br><br/>
       
-      ConfermaPassword
-      <input  name=confermapassword type="password" placeholder="Rygdjiu4" required><br><br/>
-      <button type="submit">Invia</button>
+            <label for="confermaPassword">ConfermaPassword</label>
+            <input  name=confermaPassword id="confermaPassword" type="password" placeholder="Rygdjiu4" required><br><br/>
+            
+            <button type="submit">Invia</button>
+            
 </form>
+        </div>
+        
+                <footer>
+                    <p>Email: NerdBook@credici.com</p>
+                </footer>
+        
     </body>
 </html>
  

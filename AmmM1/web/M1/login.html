@@ -6,37 +6,51 @@ and open the template in the editor.
 -->
 <html>
     <head>
-         <title>The social network:NerdBook</title>
+        <title>The social network:NerdBook</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <meta name="author" content="Emanuel Fois">
-        <meta name="keywords" content="trova il tuo Equino">
+        <meta name="author" content="Emanuel Fois">
+        <meta name="keywords" content="trova il tuo nerd,giochi,studio">
     </head>
-    <body>
-        <header> 
-            <div id="title">
-                 <h1>NerdBook</h1>
-            </div>
-        </header>
-        <div id="menu">
-                      <h2>Menu di navigazione</h2>
-                      <ul>
-            <li><a href="descrizione.html">Descrizione</a></li>      
-            <li><a href="bacheca.html">Bacheca</a></li>
-            <li><a href="profilo.html">Profilo</a></li>
-       </ul></div>
-        
-        <div id="form">
-            <form>
-            username:
-            <input type="text" name="username" id="username"/><br/>
-           
-            password:
-            <input type="password" name="password"/><br/>
+    
+     <body>
+             
+                
+                    <header id="header">
+                        <h1>NerdBook</h1>
+                    </header>
+               
             
-            <input type="submit" value="Login"/>
+            
+             
+                <nav id="menu">
+                      <h2>Menu di navigazione</h2>
+                    <ul>
+                     <li><a href="descrizione.html">Descrizione</a></li>      
+                    <li><a href="bacheca.html">Bacheca</a></li>
+                    <li><a href="profilo.html">Profilo</a></li>
+                    </ul>
+                </nav>
+            
+        
+        <div id="input-form">
+            <h3>Accedi</h3>
+            <form method="post">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username"/><br/>
+           
+                <label for="password">Password</label>
+                <input type="password" id="password" name="passwdord"/><br/>
+            
+                 <input type="submit" value="Login"/> <!-- creazione del pulsante Login -->
             </form>
         </div>
+       
+        
+                <footer>
+                    <p>Email: NerdBook@credici.com</p>
+                </footer>
+        
             
     </body>
 </html>
