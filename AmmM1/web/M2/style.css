@@ -121,7 +121,7 @@ p{
     background-color: red;
     border-radius: 10px;
     margin-bottom: 5px;
-    line-height:50.43px;
+    line-height:50.43px;/*l'altezza della linea dove comparirà la scritta'*/
   }
   
   /*caratteristiche del div che contiene l header ed il nav del menù*/
@@ -223,7 +223,17 @@ nav li.indice a,a.indice:hover{
     background-color: lightcyan;
 }
 
-
+div.logout{
+    float:right;
+    width: 5%;
+    margin-right: 10%;
+    text-align: right;
+    font-size: 10px;
+    margin-bottom: 10px;    
+}
+p.logout{
+    line-height: 4px;
+}
 /*scrivo le regole per il link dentro il post nella nostra bacheca*/
 a.indice1:link{
     font-size:18px;
@@ -579,4 +589,17 @@ h1 span:after {
     margin-bottom: 2%;
     border-radius: 10px;/*rendiamo i bordi tondi di 10px */
     }
+    
+    div.logout{
+    float:right;
+    width: 5%;
+    margin-right: 10%;
+    text-align: right;
+    
+    margin-bottom: 10px;    
+}
+p.logout{
+    line-height: 4px;
+    font-size: 12px;
+}
 }
