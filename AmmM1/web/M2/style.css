@@ -236,7 +236,7 @@ a.indice1:hover{
     font-size:18px;
     text-decoration: none;
     color:black;
-    background-color:  highlight;
+   background-color:  highlight;
     font-weight: bold;  
     text-decoration: underline;
 }
@@ -283,6 +283,7 @@ width: 90px;
 margin: 0 auto; 
 margin-bottom: 18px;
 }
+
 label.l{
 width: 75px;
 padding-right: 22px;
@@ -573,7 +574,7 @@ h1 span:after {
     
     div.post{
     background-color:  highlight ; /*sfondo del box*/ 
-   margin: 0 auto;
+    margin: 0 auto;
     width: 95%;
     margin-bottom: 2%;
     border-radius: 10px;/*rendiamo i bordi tondi di 10px */
