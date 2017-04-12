@@ -155,7 +155,9 @@ nav li.active a {
       text-decoration:none;
       background-color: red;
       border-radius: 10px;
-      padding:5px;
+      
+       font-weight: bold;
+    font-size:18px;
    }
 /* scriviamo le regole per la barra del menu*/
 nav li{
@@ -243,6 +245,7 @@ a.indice1:visited{
     text-decoration: underline;
     background-color: highlight;
     color:black;
+   
 }
 
 
@@ -322,7 +325,7 @@ border-radius: 10px;
 
 textarea:focus,input:focus{
    outline:none;
-   border-color: blue;
+   border-color: lightskyblue;
    box-shadow: 0 0 10px blue;
 }
 
@@ -414,11 +417,10 @@ div.muro{
     margin-bottom: 8px;
     margin-left: 8px;
     border-radius: 10px;
-    background-color: white;
+    background-color: papayawhip;
    /* background-image: url("immaginiCss/sfondo2.jpg");*/
     text-align: center; 
-    box-shadow: 10px 2px 5px #888888; /*creo un box al quale interno ci sarà il menu di navigazione con dimensione e colore dell'obra'*/
-}
+   }
 
 @media  (max-width: 480px){/*Regole applicate per qualsiasi larghezza del browser inferiore al valore definito nella query.*/
    h1 span {
