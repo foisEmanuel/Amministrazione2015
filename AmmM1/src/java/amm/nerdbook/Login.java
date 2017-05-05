@@ -29,7 +29,7 @@ import javax.servlet.http.HttpSession;
         if(request.getParameter("logout")!=null)
         {
             session.invalidate();
-            request.getRequestDispatcher("loginForm.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
             return;
         }
         
@@ -65,7 +65,7 @@ import javax.servlet.http.HttpSession;
                     
                     //ritorno al form del login informandolo che i dati non sono validi
                     request.setAttribute("invalidData", true);
-                    request.getRequestDispatcher("loginForm.jsp").forward(request, response);
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
                     return;
                 }
                 
@@ -78,7 +78,7 @@ import javax.servlet.http.HttpSession;
           tentativo di accesso diretto alla servlet Login -> reindirizzo verso 
           il form di login.
         */
-        request.getRequestDispatcher("loginForm.jsp").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
