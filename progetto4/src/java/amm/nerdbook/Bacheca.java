@@ -61,6 +61,7 @@ import javax.servlet.http.HttpSession;
             UtenteRegistrato utenteregistrato = UtenteRegistratoFactory.getInstance().getUtenteRegistratoById(userID);
             if(utenteregistrato != null){
                 request.setAttribute("utenteregistrato", utenteregistrato);
+                request.setAttribute("id", utenteregistrato.getId());
 
                List<Post> posts = PostFactory.getInstance().getPostList(utenteregistrato);
                 request.setAttribute("posts", posts);

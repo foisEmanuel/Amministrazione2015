@@ -5,156 +5,81 @@
  */
 package amm.nerdbook.classi;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 /**
  *
- * @author emanuelfois
+ * @author Tutor_IUM
  */
-public class Post extends HttpServlet {
+public class Post {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
-        HttpSession session = request.getSession(false);
-        
-        //se la sessione esiste ed esiste anche l'attributo loggedIn impostato a true
-        if(session!=null && 
-           session.getAttribute("loggedIn")!=null &&
-           session.getAttribute("loggedIn").equals(true)){
-            /*Due possibilità:
-            *   -devo ancora scrivere un messaggio (nessun post in request)
-            *   -ho gia scritto il messaggio e devo confermare (esiste un post in request)
-            */
-            if(request.getParameter("thereIsPost")!=null)
-            {
-                /*Altre due possibilità
-                *   -aspetto conferma da jsp
-                *   -devo salvare su DB
-                */
-                String thereIsPost = request.getParameter("thereIsPost");
-                String content = request.getParameter("textPost");
-                String type = request.getParameter("postType");
-                if(thereIsPost.equals("needConfirm")){
-                    request.setAttribute("content", content);
-                    request.setAttribute("typePost", type);
-                    request.setAttribute("newpost", "true");
-                    request.getRequestDispatcher("nuovopost.jsp").forward(request, response);
-                    return;
-                }
-                else{
-                    //salvo
-                    Post post = new Post();
-                    post.setContent(content);
-                    if(type.equals("textType"))
-                        post.setPostType(Post.Type.TEXT);
-                    else
-                        post.setPostType(Post.Type.IMAGE);
-                    
-                    post.setUser(UtenteRegistratoFactory.getInstance().getUtenteRegistratoById((Integer)session.getAttribute("loggedUserID")));
-                    PostFactory.getInstance().addNewPost(post);
-                    request.getRequestDispatcher("Bacheca").forward(request, response);
-                }
-            }
-            else{
-                request.getRequestDispatcher("nuovopost.jsp").forward(request, response);
-                return;
-            }
-        }
-        else{
-            request.getRequestDispatcher("Login").forward(request, response);
-        }
-        
-    }
+    public enum Type {
+        TEXT, IMAGE
+    };
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    protected int id;
+    protected UtenteRegistrato user;
+    private String content;
+    private Type postType;
+
+    public Post() {
+        id = 0;
+        user = null;
+        content = "";
+        postType = Type.TEXT;
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @return the id
      */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    public int getId() {
+        return id;
     }
 
     /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
+     * @param id the id to set
      */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
-    void setContent(String content) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setId(int id) {
+        this.id = id;
     }
 
-    void setUser(UtenteRegistrato autore) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @return the user
+     */
+    public UtenteRegistrato getUser() {
+        return user;
     }
 
-    void setId(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @param user the user to set
+     */
+    public void setUser(UtenteRegistrato user) {
+        this.user = user;
     }
 
-    String getContent() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @return the content
+     */
+    public String getContent() {
+        return content;
     }
 
-    Object getUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @param content the content to set
+     */
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    void setPostType(Type IMAGE) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @return the postType
+     */
+    public Type getPostType() {
+        return postType;
     }
 
-    Type getPostType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @param postType the postType to set
+     */
+    public void setPostType(Type postType) {
+        this.postType = postType;
     }
-
-    static class Type {
-        static Type IMAGE;
-        static Type TEXT;
-
-        public Type() {
-        }
-    }
-
 }

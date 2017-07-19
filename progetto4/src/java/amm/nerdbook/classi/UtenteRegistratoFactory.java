@@ -42,15 +42,13 @@ public class UtenteRegistratoFactory {
     public UtenteRegistrato getUtenteRegistratoById(int id) {
 
         try {
-            try ( // path, username, password
-                    Connection conn = DriverManager.getConnection(connectionString, "ema", "11ema")) {
-                String query =
-                        " select * from UtentiRegistrati "
-                        + " where utente_id = ? ";
+             // path, username, password
+                    Connection conn = DriverManager.getConnection(connectionString, "ema", "ema"); 
+                String query = "select * from UtentiRegistrati " + "where utente_id = ?";
                 
                 // Si associano i valori
-                try ( // Prepared Statement
-                        PreparedStatement stmt = conn.prepareStatement(query)) {
+               
+                        PreparedStatement stmt = conn.prepareStatement(query);
                     // Si associano i valori
                     stmt.setInt(1, id);
                     
@@ -61,7 +59,7 @@ public class UtenteRegistratoFactory {
                     if (res.next()) {
                         UtenteRegistrato current = new UtenteRegistrato();
                         current.setId(res.getInt("utente_id"));
-                        current.setNome(res.getString("name"));
+                        current.setNome(res.getString("nome"));
                         current.setCognome(res.getString("cognome"));
                         current.setPassword(res.getString("password"));
                         current.setEmail(res.getString("email"));
@@ -72,8 +70,9 @@ public class UtenteRegistratoFactory {
                         conn.close();
                         return current;
                     }
-                }
-            }
+                stmt.close();
+                        conn.close();
+            
         } catch (SQLException e) {
               e.printStackTrace();
         }
@@ -82,15 +81,13 @@ public class UtenteRegistratoFactory {
     
     public int getIdByUserAndPassword(String user, String password){
         try {
-            try ( // path, username, password
-                    Connection conn = DriverManager.getConnection(connectionString, "ema", "ema11")) {
-                String query =
-                        " select utente_id from UtentiRegistrati "
-                        + " where name = ? and password = ? ";
+            // path, username, password
+                    Connection conn = DriverManager.getConnection(connectionString, "ema", "ema"); 
+                String query = " select utente_id from UtentiRegistrati" + " where email = ? and password = ?";
                 
                 // Si associano i valori
-                try ( // Prepared Statement
-                        PreparedStatement stmt = conn.prepareStatement(query)) {
+                // Prepared Statement
+                        PreparedStatement stmt = conn.prepareStatement(query);
                     // Si associano i valori
                     stmt.setString(1, user);
                     stmt.setString(2, password);
@@ -106,8 +103,10 @@ public class UtenteRegistratoFactory {
                         conn.close();
                         return id;
                     }
-                }
-            }
+                
+             stmt.close();
+                        conn.close();
+                        
         } catch (SQLException e) {
         }
         return -1;

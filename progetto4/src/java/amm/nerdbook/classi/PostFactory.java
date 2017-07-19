@@ -48,8 +48,7 @@ public class PostFactory {
     //Fine gestione DB
     
     
-    
-   // private ArrayList <Post> listaPost = new ArrayList <Post> ();
+     
 
     private PostFactory() {
     }
@@ -58,16 +57,15 @@ public class PostFactory {
         UtenteRegistratoFactory utenteregistratoFactory = UtenteRegistratoFactory.getInstance();
         
         try {
-            try ( // path, username, password
-                    Connection conn = DriverManager.getConnection(connectionString, "ema", "11ema")) {
-                String query =
-                        "select * from posts "
-                        + "join posttype on posts.type = posttype.posttype_id "
-                        + "where post_id = ?";
+             // path, username, password
+                    Connection conn = DriverManager.getConnection(connectionString, "ema", "ema");
+                    
+            String query = "select * from posts "
+         + "join posttype on posts.type = posttype.posttype_id "
+         + "where post_id = ?";
                 
-                // Si associano i valori
-                try ( // Prepared Statement
-                        PreparedStatement stmt = conn.prepareStatement(query)) {
+               
+                        PreparedStatement stmt = conn.prepareStatement(query);
                     // Si associano i valori
                     stmt.setInt(1, id);
                     
@@ -94,10 +92,14 @@ public class PostFactory {
                         conn.close();
                         return current;
                     }
-                }
-            }
+                    stmt.close();
+            conn.close();
+                
+            
         } catch (SQLException e) {
+             e.printStackTrace();
         }
+        
         return null;
         
     }
@@ -107,16 +109,15 @@ public class PostFactory {
         List<Post> listaPost = new ArrayList <> ();
 
          try {
-            try ( // path, username, password
-                    Connection conn = DriverManager.getConnection(connectionString, "ema", "11ema")) {
+             // path, username, password
+                    Connection conn = DriverManager.getConnection(connectionString, "ema", "ema");
                 String query =
                         "select * from posts "
                         + "join posttype on posts.type = posttype.posttype_id "
                         + "where author = ?";
                 
-                // Si associano i valori
-                try ( // Prepared Statement
-                        PreparedStatement stmt = conn.prepareStatement(query)) {
+              
+                        PreparedStatement stmt = conn.prepareStatement(query);
                     // Si associano i valori
                     stmt.setInt(1, utr.getId());
                     
@@ -141,9 +142,12 @@ public class PostFactory {
                         
                         listaPost.add(current);
                     }
-                }
-            }
+                    stmt.close();
+            conn.close();
+                
+            
         } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         return listaPost;
@@ -153,7 +157,7 @@ public class PostFactory {
      public void addNewPost(Post post){
         try {
             // path, username, password
-            Connection conn = DriverManager.getConnection(connectionString, "ema", "11ema");
+            Connection conn = DriverManager.getConnection(connectionString, "ema", "ema");
             
             String query = 
                       "insert into posts (post_id, content, type, author) "
@@ -167,12 +171,13 @@ public class PostFactory {
 
             stmt.setInt(2, this.postTypeFromEnum(post.getPostType()));
             
-            //stmt.setInt(3, post.getUser().getId());
+            stmt.setInt(3, post.getUser().getId());
             
             // Esecuzione query
             stmt.executeUpdate();
         }
         catch(SQLException e){
+             e.printStackTrace();
         }
     }
     
@@ -185,30 +190,11 @@ public class PostFactory {
     }
     
     private int postTypeFromEnum(Post.Type type){
-        //È realizzabile in modo più robusto rispetto all'hardcoding degli indici
+        
         if(type == Post.Type.TEXT)
                 return 1;
             else
                 return 2;
     }
 }
-    
-    
-    /*sql*/
-/*public void setConnectionString(String s){
-	this.connectionString = s;
-}
-
-public String getConnectionString(){
-	return this.connectionString;
-} */
-    /*
-    public void setConnectionString(String dbConnection) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private Post.Type postTypeFromString(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-}
-*/
+      
