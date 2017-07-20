@@ -32,8 +32,8 @@ public class Login extends HttpServlet {
 
     @Override
     public void init() {
-        String dbConnection = "jdbc:derby:" + //this.getServletContext().getRealPath("/") + DB_BUILD_PATH
-                "//localhost:1527/ammdb4";
+        String dbConnection = "jdbc:derby:" + this.getServletContext().getRealPath("/") + DB_BUILD_PATH;
+               // "//localhost:1527/ammdb4";
         try {
             Class.forName(JDBC_DRIVER);
         } catch (ClassNotFoundException ex) {
