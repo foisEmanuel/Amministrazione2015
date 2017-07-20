@@ -307,7 +307,7 @@ font-family: bold;
 
 div.form{
     float:right;
-    width: 79%;
+    width: 69%;
     height:478px;
     margin: 0 auto;
     margin-bottom: 8px;
@@ -364,6 +364,7 @@ div.colonna1{
     width: 20%;
     height: 80%;
     border-radius: 10px;
+    margin-right: 100px;
 }
 
 
@@ -400,6 +401,7 @@ div.post{
     margin-bottom: 2%;
     border-radius: 10px;/*rendiamo i bordi tondi di 10px */
     padding-bottom: 10px;
+    
 }
 
 h3.post{
@@ -422,17 +424,21 @@ p.post{
 
 div.muro{
     float:right;
-    width: 65%;
+    width: 45%;
     height:80%;
     margin: 0 auto;
     margin-bottom: 8px;
-    margin-left: 8px;
+    margin-left: 118px;
     border-radius: 10px;
     background-color: papayawhip;
    /* background-image: url("immaginiCss/sfondo2.jpg");*/
     text-align: center; 
    }
 
+   
+   
+   
+   
 @media  (max-width: 480px){/*Regole applicate per qualsiasi larghezza del browser inferiore al valore definito nella query.*/
    h1 span {
     position: relative;

@@ -27,6 +27,7 @@ and open the template in the editor.
     
     <body> 
         <div class="separatore">
+            
                 <!--header contenente in titolo della pagina-->
         <c:set var="title" value="Bacheca Personale" scope="request"/>
         <jsp:include page="header.jsp"/>
@@ -35,13 +36,14 @@ and open the template in the editor.
         <c:set var="page" value="bacheca" scope="request"/>
         <jsp:include page="nav.jsp"/>
         
-            
+        
+       
          
         </div>
          <!--Contenuti della pagina-->
          <div class="contenitore">
         
-        <div class="colonna1"><!-- colonna 1-->
+        <div class="colonna1">
             <h3 class="colonna1">Persone</h3>
             <p class="colonna1"><span>Pinco Pallino</span></p><br/>
             <p class="colonna1"><span>Ricciardo Rossi</span></p><br/>
@@ -51,49 +53,76 @@ and open the template in the editor.
            
             
         </div>
-            
-            <div class="muro">
-                  </div>
-            <div class="post">
-                
-                    
-                 <img src="${utenteregistrato.urlFotoProfilo}" alt="foto autore"><br/>
-                 <p>
-                 <strong>Nome:</strong> 
-                    ${utenteregistrato.nome}
-                 </p>
-                 <p>
-                 <strong>Email:</strong> 
-                    ${utenteregistrato.email}
-                 </p>
-                 <p>
-                  <strong>Cognome:</strong> 
-                    ${utenteregistrato.cognome}
-                 </p>
+             
+            <div class="form">
                  
-                 <c:if test="${empty param.user}">
+                <c:if test="${empty param.user}">
                     <p id="logOutLink"><a href="Login?logout=1">Logout</a></p>
                 </c:if>
+            <div class="post">
+               
+            
+                <c:choose>
+                <c:when test="${empty newpost}">
+                    
+                        <form action="NuovoPost" method="post">
+                            
+                                
+                          <label for="textType">Post di Testo</label>
+                           <input type="radio" name="postType" value="textType" id="textType" checked="checked">
+                                
+                                
+                            <label for="imgType">Post con Foto</label>
+                            <input type="radio" name="postType" value="imgType" id="imgType">
+                                
+                            
+                            
+                                
+                            <label for="textPost">Contenuto</label>
+                            <textarea name="textPost" id="textPost"></textarea>
+                                
+                            
+                            <button type="submit" name="thereIsPost" value="needConfirm">Invia</button>
+                        </form>     
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    
+                    
+                        <form action="NuovoPost" method="post">
+                            <c:if test="${typePost == 'textType'}">
+                                <p>${content}</p>
+                            </c:if>
+                            <c:if test="${typePost == 'imgType'}">
+                                <img src="${content}" alt="downloadedImage">
+                            </c:if>
+                            <input type="text" hidden name="textPost" value="${content}">
+                            <input type="text" hidden name="postType" value="${typePost}">
+                            <button type="submit" name="thereIsPost" value="Confirmed">Conferma</button>
+                        </form>
+                    
+                </c:otherwise>
+            </c:choose>
                  
-                
-            </div>
+            
+          
                 
             <div class="post">
                  <c:forEach var="post" items="${posts}">
-                    <div class="post">
+                    
                         <c:if test="${post.postType == 'TEXT'}">
                             <p>${post.content}</p>
                         </c:if>
                         <c:if test="${post.postType == 'IMAGE'}">
                             <img alt="Post con foto" src="${post.content}">
                         </c:if>
-                    </div>
+                    
                 </c:forEach>
             </div>
         
          </div>
          
-        
+         </div>
                 <footer>
        <p class="footer"> Numero di telefono:3434343434            Email: NerdBook@credici.com          NerdBook2017</p>
                 </footer>

@@ -25,26 +25,19 @@ and open the template in the editor.
    
     </head>
     
-    <body>
-       
+     <body> 
         <div class="separatore">
-            <header id="header">
-                <h1><span>NerdBook<sup>TM</sup></span></h1>
-            </header>
+            
+                <!--header contenente in titolo della pagina-->
+        <c:set var="title" value="Profilo Personale" scope="request"/>
+        <jsp:include page="header.jsp"/>
+        <!--Barra di navigazione tra le pagine del sito-->
+        <c:set var="page" value="profilo" scope="request"/>
+        <jsp:include page="nav.jsp"/>
         
         
-        
-            <nav>
-                <div class="logout">
-                        <p class="logout">Autore</p>
-                        <p class="logout">logout </p>
-                    </div>
-                <ul>
-                      
-                <li><a href="Bacheca">Bacheca</a></li>
-                <li><a href="descrizione.jsp">Descrizione</a></li>
-                </ul>
-            </nav>
+         
+         
         </div>
         
         <div class="contenitore">
@@ -60,7 +53,12 @@ and open the template in the editor.
             
         </div>
             
-        <div class="form">  <!--colonna2-->
+        <div class="form">
+              
+ <c:if test="${empty param.user}">
+                    <p id="logOutLink"><a href="Login?logout=1">Logout</a></p>
+                </c:if>
+         
             <h3 class="form"><span>Profilo</span></h3>
             
             

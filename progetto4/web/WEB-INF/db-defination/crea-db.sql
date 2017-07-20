@@ -30,9 +30,27 @@ CREATE TABLE posts (
 --Popolamento tabella Post
 INSERT INTO posts (post_id, content, type, author)
 VALUES (default,
-        'Ciao, miei schiavi. Datemi cibo! Adesso! Miaomiaomiaomiaomiao!',
+        'salve padrone!',
         1,
         1);
+
+INSERT INTO posts (post_id, content, type, author)
+VALUES (default,
+        'wellaaaa!',
+        1,
+        2);
+
+INSERT INTO posts (post_id, content, type, author)
+VALUES (default,
+        'Forza cagliari!!!',
+        1,
+        3);
+INSERT INTO posts (post_id, content, type, author)
+VALUES (default,
+        'Help me!',
+        1,
+        4);
+
 
 INSERT INTO posts (post_id, content, type, author)
 VALUES (default,
